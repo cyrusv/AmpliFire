@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{% block title %}AmpliFire{% endblock %}</title>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="author" content="AmpliFire Cyrus Vafadari" />
+<meta name="description" content="Discover musicians" />
+<meta name="keywords" content="undiscovered, music, new, undiscovered music, new music" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+<link rel="stylesheet" href="/media/style.css" type="text/css" />
+<link rel="shortcut icon" href="/media/template_images/favicon.ico">
+</head>
+
+<body>
+
+<!-- wrap starts here -->
+<div id="wrap">
+
+<div align=right>
+{% if request.user.is_authenticated %}
+Hello, {{ request.user.get_profile.firstname }}! <a href="/accounts/logout">Log out</a>
+{% else %}
+<a href="/accounts/login/">Log In</a>
+{% endif %}
+</div>
+
+
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="/" title="">AmpliFire</a></h1>		
+		<p id="slogan">Discover and be discovered.</p>		
+			
+	<!--header ends-->					
+	</div>
+		
+	<!-- navigation starts-->	
+	<div  id="nav">
+		<ul>
+			<li {% block home %}{% endblock %}><a href="/">Home</a></li>
+			<li {% block find %}{% endblock %}><a href="/profile/">ProfileList</a></li>
+			<li {% block profile %}{% endblock %}><a href="/profile/{{request.user.username}}">My Profile</a></li>
+			<li {% block artists %}{% endblock %}><a href="/artists/{{request.user.username}}">artists</a></li>
+			<li {% block contact %}{% endblock %}><a href="/contact/">Contact</a></li>
+		</ul>
+	
+	<!-- navigation ends-->	
+	</div>					
+
+
+	
+	<!-- content-wrap starts -->
+	<div id="content-wrap">
+	
+		<div id="main">
+				
+				
+				{% block content %}
+				{% endblock %}
+			<p>
+			<p>
+			<p>
+		
+			
+		
+	<!-- content-wrap ends-->	
+	</div>
+		
+	<!-- footer starts -->		
+	<div id="footer-wrap"><div id="footer-content">
+	
+
+	
+		<div id="footer-bottom">
+			<p>
+			&copy; 2010  <strong>AmpliFire</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+			
+   		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<a href="/">Home</a>&nbsp;|&nbsp;
+   	   	    <a href="/">RSS Feed</a>
+   		    </p>
+		</div>	
+
+<!-- footer ends-->
+</div></div>
+
+<!-- wrap ends here -->
+</div>
+
+</body>
+</html>

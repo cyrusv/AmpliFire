@@ -1,0 +1,2 @@
+sudo /etc/init.d/apache2 stop
+sudo python manage.py runserver 0.0.0.0:80
