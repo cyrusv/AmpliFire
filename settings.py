@@ -93,7 +93,7 @@ INSTALLED_APPS = (
 	'profile',
 	'player',
 	'contact',
-	'artists'
+	'artists',
 )
 
 LOGIN_REDIRECT_URL = 'http://amplifire.mobi/'
