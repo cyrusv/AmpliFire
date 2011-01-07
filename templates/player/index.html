@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+{%block home%}id="current"{%endblock%}
+
+{% block content %} 
+Welcome to our homepage
+{{request.user.get_profile}}
+{% endblock %}

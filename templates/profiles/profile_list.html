@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}List of Users{% endblock %}
+
+{% block find %}id="current"{% endblock %}
+ 
+{% block content %}
+
+<script type="text/javascript">
+    function ChangeColor(tableRow, highLight)
+    {
+    if (highLight)
+    {
+      tableRow.style.backgroundColor = '#DCE0F1';
+    }
+    else
+    {
+      tableRow.style.backgroundColor = '';
+    }
+  }
+
+  function DoNav(theUrl)
+  {
+  document.location.href = theUrl;
+  }
+  </script>
+
+
+
+<table width="150%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="45%">Name</td>    
+	<td width="30%">Contact Email</td>
+	<td width="25%">Zipcode</td>
+  </tr>
+{% for p in object_list  %}
+  <tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="DoNav('http://jaycall.com/profile/{{p.user.username}}');">
+    
+	<td width="45%">{{p}}</td>
+  
+	<td width="30%"> {{p.user.email}}</td>    
+	
+	<td width="25%">{{p.zipcode}}</td>
+  
+  
+  </tr>
+
+
+{% endfor %}
+
+</table>
+
+
+{% endblock content %}

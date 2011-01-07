@@ -1,0 +1,7 @@
+{% load i18n %}
+Welcome to AmpliFire!
+
+Please follow this link to activate your account.
+http://amplifire.mobi{% url registration_activate activation_key %}
+
+Link is valid for 2 days.

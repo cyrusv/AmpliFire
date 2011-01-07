@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block profile %}id="current"{% endblock %}
+
+
+
+{% block content %}
+
+{% if account %}
+
+<p>{% trans "Account successfully activated!" %}</p>
+
+<p><a href="/profile/">{% trans "Create your profile." %}</a></p>
+
+
+
+{% else %}
+
+<p>{% trans "Account activation failed." %}</p>
+
+{{account}}
+{% endif %}
+
+{% endblock %}

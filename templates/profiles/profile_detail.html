@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile }} at AmpliFire{% endblock %}
+
+
+{% block profile %}{% if request.user.username == profile.user.username %}id="current"{% endif %}{% endblock %}
+
+{% block find %}{% if request.user.username != profile.user.username %}id="current"{% endif %}{% endblock %}
+
+ 
+
+{% block content %}
+
+{% for name, value in profile.get_fields %}
+  {% if value %}
+    {{ name }} => {{ value }}
+	<br>
+  {% endif %}
+{% endfor %}
+<br>
+<br>
+
+{% if request.user.username == profile.user.username %}
+<a href="/profile/edit/"> Edit My Profile </a>
+{% endif %}
+
+{% endblock content %}

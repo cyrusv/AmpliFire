@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} {{artist_name}} {% endblock %}
+
+{%block artists%}id="current"{%endblock%}
+
+{% block content %} 
+
+<p>Welcome to the Artist Page of {{ artist_name }}. </p>
+
+<p>You, {{request.user.get_profile}}, are in {{request.user.get_profile.artist_groups.all}}</p>
+
+
+{% endblock %}
