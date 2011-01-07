@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     (r'^$',               include('player.urls')),
 	(r'^accounts/',       include('registration.urls')),
 	(r'^profile/',        include('profile.urls')),
-	# (r'^artists/',        include('artists.urls')),
+	(r'^artists/',        include('artists.urls')),
 	(r'^contact/',        include('contact.urls')),
 		
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
